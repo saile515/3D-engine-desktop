@@ -1,16 +1,25 @@
 {
-	"configurations": [
-		{
-			"name": "Win32",
-			"includePath": ["${default}", "C:/GLFW/include"],
-			"defines": ["_DEBUG", "UNICODE", "_UNICODE"],
-			"windowsSdkVersion": "10.0.22000.0",
-			"compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
-			"cStandard": "c17",
-			"cppStandard": "c++17",
-			"intelliSenseMode": "windows-gcc-x64",
-			"compilerArgs": []
-		}
-	],
-	"version": 4
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${default}",
+                "C:/GLFW/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.22000.0",
+            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerArgs": [],
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
 }

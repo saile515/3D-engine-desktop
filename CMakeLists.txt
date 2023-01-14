@@ -18,7 +18,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # Build an executable (Unix-like OSes generates ./openglDemo1, on
 # Windows ./opengDemo1.exe)
 # ..........................................
-add_executable(engine main.cpp)
+add_executable(engine src/main.cpp)
 
 # Set executable dependency libraries
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
