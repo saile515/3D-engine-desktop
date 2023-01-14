@@ -1,5 +1,6 @@
 #include <iostream>
 #include <GLFW/glfw3.h>
+#include "engine/core/Engine.h"
 
 int main(void)
 {
@@ -20,9 +21,15 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
+    Engine engine;
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
+        engine.update();
+
+        std::cout << engine.fps << "\n";
+
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
