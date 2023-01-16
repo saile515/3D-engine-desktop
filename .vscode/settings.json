@@ -1,4 +1,6 @@
 {
+	"C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+	"cSpell.words": ["glfw"],
 	"files.associations": {
 		"array": "cpp",
 		"atomic": "cpp",

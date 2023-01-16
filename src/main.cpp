@@ -1,45 +1,25 @@
 #include <iostream>
+
 #include <GLFW/glfw3.h>
-#include "engine/core/Engine.h"
+
+#include "core/Engine.h"
 
 int main(void)
 {
-    GLFWwindow *window;
 
-    /* Initialize the library */
-    if (!glfwInit())
-        return -1;
+    std::cout << "Hello";
+    Engine engine = Engine::get();
 
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    if (!window)
-    {
-        glfwTerminate();
-        return -1;
-    }
-
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
-
-    Engine engine;
+    engine.init();
 
     /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
+    while (engine.window.shouldUpdate())
     {
         engine.update();
 
         std::cout << engine.fps << "\n";
-
-        /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        /* Swap front and back buffers */
-        glfwSwapBuffers(window);
-
-        /* Poll for and process events */
-        glfwPollEvents();
     }
 
-    glfwTerminate();
+    engine.window.terminate();
     return 0;
 }

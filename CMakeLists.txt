@@ -15,13 +15,13 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 #========== Targets Configurations ============#
 
-# Build an executable (Unix-like OSes generates ./openglDemo1, on
-# Windows ./opengDemo1.exe)
-# ..........................................
-add_executable(engine src/main.cpp)
+include(${PROJECT_SOURCE_DIR}/cmake/SourceList.cmake)
+
+add_executable(engine ${engine_SRC})
 
 # Set executable dependency libraries
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
+
 find_package(glfw3 REQUIRED)
 target_link_libraries(engine ${GLFW3_LIBRARY})
 target_include_directories(engine PUBLIC ${GLFW3_INCLUDE_DIR})
