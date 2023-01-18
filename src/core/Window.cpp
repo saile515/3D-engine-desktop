@@ -1,8 +1,17 @@
-#include "Window.h"
+#define GLEW_STATIC
+#include <GL/glew.h>
 
+#include "Window.h"
 #include <iostream>
 
 #include <GLFW/glfw3.h>
+
+#include "Engine.h"
+
+Window::Window()
+{
+    std::cout << &Engine::get().window << " " << this << "\n";
+}
 
 int Window::init()
 {
@@ -18,12 +27,20 @@ int Window::init()
     if (!window)
     {
         std::cout << "GLFW failed to create window!\n";
-        glfwTerminate();
+        terminate();
         return -1;
     }
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
+
+    GLenum err = glewInit();
+    if (GLEW_OK != err)
+    {
+        std::cout << "GLEW failed to initialize!\n";
+        terminate();
+        return -1;
+    }
 
     std::cout << "Window initialized\n";
 
@@ -40,4 +57,9 @@ bool Window::shouldUpdate()
 void Window::terminate()
 {
     glfwTerminate();
+}
+
+GLFWwindow *Window::getGLFWWindow()
+{
+    return window;
 }

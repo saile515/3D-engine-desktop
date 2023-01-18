@@ -26,12 +26,18 @@ find_package(glfw3 REQUIRED)
 target_link_libraries(engine ${GLFW3_LIBRARY})
 target_include_directories(engine PUBLIC ${GLFW3_INCLUDE_DIR})
 
+list(APPEND CMAKE_PREFIX_PATH "C:/GLEW")
+
+set(GLEW_USE_STATIC_LIBS true)
+
+find_package(GLEW REQUIRED)
+target_link_libraries(engine GLEW::glew_s)
+
 find_package(OpenGL REQUIRED)
 target_link_libraries(engine OpenGL::GL)
 
 # Add extension .bin to executable name to make it easier
 # to identify that the binary file is an executable.
-# So, it turns  openglDemo1 becomes openglDemo1.bin 
 if(UNIX)
   set_target_properties(engine PROPERTIES SUFFIX ".bin")
 endif()

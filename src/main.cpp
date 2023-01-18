@@ -1,13 +1,9 @@
 #include <iostream>
 
-#include <GLFW/glfw3.h>
-
 #include "core/Engine.h"
 
 int main(void)
 {
-
-    std::cout << "Hello";
     Engine engine = Engine::get();
 
     engine.init();
@@ -17,7 +13,7 @@ int main(void)
     {
         engine.update();
 
-        std::cout << engine.fps << "\n";
+        // std::cout << engine.fps << "\n";
     }
 
     engine.window.terminate();

@@ -25,9 +25,9 @@ set( _glfw3_LIB_SEARCH_DIRS
 "/usr/local/lib"
 "${CMAKE_SOURCE_DIR}/lib"
 "C:/Program Files (x86)/glfw/lib-msvc110"
+"C:/GLFW/lib-vc2022"
 "C:/GLFW/lib-mingw-w64"
-"C:/GLFW/lib-static-ucrt"
-"C:/GLFW/lib-vc2022" )
+"C:/GLFW/lib-static-ucrt" )
 
 # Check environment for root search directory
 set( _glfw3_ENV_ROOT $ENV{GLFW3_ROOT} )

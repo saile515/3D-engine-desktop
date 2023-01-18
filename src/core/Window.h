@@ -14,4 +14,8 @@ public:
     bool shouldUpdate();
 
     void terminate();
+
+    GLFWwindow *getGLFWWindow();
+
+    Window();
 };
