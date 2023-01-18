@@ -19,7 +19,6 @@ void Scene::update()
     render();
 
     /* Swap front and back buffers */
-    std::cout << Engine::get().window.getGLFWWindow() << "\n";
     glfwSwapBuffers(Engine::get().window.getGLFWWindow());
 }
 

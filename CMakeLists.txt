@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 
-# Proeject name - should not contain whitespace 
-project(3D-Engine++)
+project(3D-Engine-desktop)
 
 #========== Global Configurations =============#
 #----------------------------------------------#

@@ -5,7 +5,6 @@
 int main(void)
 {
     Engine engine = Engine::get();
-
     engine.init();
 
     /* Loop until the user closes the window */

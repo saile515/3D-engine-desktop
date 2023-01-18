@@ -16,7 +16,6 @@ Engine &Engine::get()
 
 void Engine::init()
 {
-    std::cout << &window << " " << Engine::get().window.getGLFWWindow() << "\n";
     window.init();
 }
 
