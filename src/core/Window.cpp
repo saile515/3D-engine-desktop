@@ -22,7 +22,7 @@ int Window::init()
     }
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(width, height, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(width, height, title, NULL, NULL);
     if (!window)
     {
         std::cout << "GLFW failed to create window!\n";
