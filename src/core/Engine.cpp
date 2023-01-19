@@ -5,10 +5,12 @@
 #include <math.h>
 
 #include "Window.h"
+#include "Scene.h"
 
 Engine::Engine()
 {
     window = new Window();
+    scene = new Scene();
 }
 
 Engine &Engine::get()
@@ -25,9 +27,9 @@ void Engine::init()
 void Engine::update()
 {
     // Calculate delta time and update perfBuffer
-    std::chrono::steady_clock::time_point perf = std::chrono::steady_clock::now();
+    std::clock_t perf = std::clock();
 
-    deltaTime = ((perf - perfBuffer[59]) / 1000).count();
+    deltaTime = ((perf - perfBuffer[59]) / 1000);
 
     for (int i = 1; i < 60; i++)
     {
@@ -37,7 +39,7 @@ void Engine::update()
     perfBuffer[59] = perf;
 
     // Calculate FPS
-    fps = floorf((perfBuffer[59] - perfBuffer[0]).count());
+    fps = floorf(1000 / ((perfBuffer[59] - perfBuffer[0]) / 60));
 
-    scene.update();
+    scene->update();
 }

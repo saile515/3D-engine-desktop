@@ -1,6 +1,6 @@
 #pragma once
 
-#include <chrono>
+#include <ctime>
 #include "Window.h"
 #include "Scene.h"
 
@@ -8,7 +8,7 @@ class Engine
 {
 public:
     Window *window;
-    Scene scene;
+    Scene *scene;
     float deltaTime;
     int fps;
 
@@ -18,5 +18,5 @@ public:
 
 private:
     Engine();
-    std::chrono::steady_clock::time_point perfBuffer[60];
+    std::clock_t perfBuffer[60];
 };

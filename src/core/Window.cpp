@@ -33,6 +33,7 @@ int Window::init()
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
+    glewExperimental = GL_TRUE;
     GLenum err = glewInit();
     if (GLEW_OK != err)
     {
@@ -42,6 +43,10 @@ int Window::init()
     }
 
     std::cout << "Window initialized\n";
+
+    GLuint VertexArrayID;
+    glGenVertexArrays(1, &VertexArrayID);
+    glBindVertexArray(VertexArrayID);
 
     glViewport(0, 0, width, height);
 
