@@ -22,8 +22,8 @@ set( _glfw3_HEADER_SEARCH_DIRS
 "C:/Program Files (x86)/glfw/include"
  )
 set( _glfw3_LIB_SEARCH_DIRS
-"C:/GLFW/lib-mingw-w64"
 "C:/GLFW/lib-vc2022"
+"C:/GLFW/lib-mingw-w64"
 "C:/GLFW/lib-static-ucrt"
 "/usr/lib"
 "/usr/local/lib"
