@@ -8,13 +8,13 @@ int main(void)
     engine.init();
 
     /* Loop until the user closes the window */
-    while (engine.window.shouldUpdate())
+    while (engine.window->shouldUpdate())
     {
         engine.update();
 
-        // std::cout << engine.fps << "\n";
+        std::cout << engine.fps << "\n";
     }
 
-    engine.window.terminate();
+    engine.window->terminate();
     return 0;
 }

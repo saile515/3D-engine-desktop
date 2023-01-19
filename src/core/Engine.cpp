@@ -4,8 +4,11 @@
 
 #include <math.h>
 
+#include "Window.h"
+
 Engine::Engine()
 {
+    window = new Window();
 }
 
 Engine &Engine::get()
@@ -16,7 +19,7 @@ Engine &Engine::get()
 
 void Engine::init()
 {
-    window.init();
+    window->init();
 }
 
 void Engine::update()

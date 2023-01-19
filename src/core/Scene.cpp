@@ -19,7 +19,7 @@ void Scene::update()
     render();
 
     /* Swap front and back buffers */
-    glfwSwapBuffers(Engine::get().window.getGLFWWindow());
+    glfwSwapBuffers(Engine::get().window->getGLFWWindow());
 }
 
 void Scene::render()

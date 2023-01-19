@@ -7,10 +7,10 @@
 class Engine
 {
 public:
-    Window window;
+    Window *window;
     Scene scene;
     float deltaTime;
-    float fps;
+    int fps;
 
     static Engine &get();
     void init();

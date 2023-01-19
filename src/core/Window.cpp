@@ -10,7 +10,6 @@
 
 Window::Window()
 {
-    std::cout << this << "\n";
 }
 
 int Window::init()
@@ -45,8 +44,6 @@ int Window::init()
     std::cout << "Window initialized\n";
 
     glViewport(0, 0, width, height);
-
-    std::cout << this << "\n";
 
     return 0;
 }
