@@ -13,7 +13,7 @@ Engine::Engine()
     scene = new Scene();
 }
 
-Engine &Engine::get()
+Engine& Engine::get()
 {
     static Engine instance;
     return instance;
@@ -22,6 +22,7 @@ Engine &Engine::get()
 void Engine::init()
 {
     window->init();
+    scene->init();
 }
 
 void Engine::update()

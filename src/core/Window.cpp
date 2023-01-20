@@ -1,4 +1,3 @@
-#define GLEW_STATIC
 #include <GL/glew.h>
 
 #include "Window.h"
@@ -9,21 +8,17 @@
 
 #include "Engine.h"
 
-Window::Window()
-{
-}
-
 void GLAPIENTRY Window::MessageCallback(GLenum source,
-                                        GLenum type,
-                                        GLuint id,
-                                        GLenum severity,
-                                        GLsizei length,
-                                        const GLchar *message,
-                                        const void *userParam)
+    GLenum type,
+    GLuint id,
+    GLenum severity,
+    GLsizei length,
+    const GLchar* message,
+    const void* userParam)
 {
     std::fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n",
-                 (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""),
-                 type, severity, message);
+        (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""),
+        type, severity, message);
 }
 
 int Window::init()
@@ -80,7 +75,7 @@ void Window::terminate()
     glfwTerminate();
 }
 
-GLFWwindow *Window::getGLFWWindow()
+GLFWwindow* Window::getGLFWWindow()
 {
     return window;
 }

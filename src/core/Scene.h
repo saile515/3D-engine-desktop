@@ -3,8 +3,9 @@
 class Scene
 {
 public:
+    void init();
+
     void update();
-    Scene();
 
 private:
     GLuint vertexbuffer;
