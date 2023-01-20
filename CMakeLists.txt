@@ -12,9 +12,12 @@ add_executable (engine
 "src/core/Engine.cpp" 
 "src/core/Engine.h" 
 "src/core/Scene.cpp" 
-"src/core/Scene.h" 
-"src/core/Window.h" 
+"src/core/Scene.h"  
 "src/core/Window.cpp"
+"src/core/Window.h"
+
+"src/utils/loadShader.cpp"
+"src/utils/loadShader.h"
 
 )
 

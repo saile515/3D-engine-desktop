@@ -1,5 +1,3 @@
-#include <GL/glew.h>
-
 #include <iostream>
 
 #include "core/Engine.h"

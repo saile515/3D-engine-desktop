@@ -1,5 +1,7 @@
 #pragma once
 
+#include <GL/glew.h>
+
 class Scene
 {
 public:
@@ -9,5 +11,6 @@ public:
 
 private:
     GLuint vertexbuffer;
+    GLuint programID;
     void render();
 };
