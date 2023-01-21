@@ -15,6 +15,17 @@ add_executable (engine
 "src/core/Scene.h"  
 "src/core/Window.cpp"
 "src/core/Window.h"
+"src/core/Component.h"
+"src/core/Object.cpp"
+"src/core/Object.h"
+"src/core/Vector3.cpp"
+"src/core/Vector3.h"
+
+"src/objects/Camera.h"
+
+"src/components/Transform.cpp"
+"src/components/Transform.h"
+"src/components/Mesh.h"
 
 "src/utils/loadShader.cpp"
 "src/utils/loadShader.h"

@@ -4,12 +4,16 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <glm/mat4x4.hpp>
 
 #include "Engine.h"
+#include "../objects/Camera.h"
 #include "../utils/loadShader.h"
 
 void Scene::init()
 {
+    camera = new Camera();
+
     static const GLfloat g_vertex_buffer_data[] = {
         -1.0f,
         -1.0f,
@@ -62,7 +66,12 @@ void Scene::render()
         0,        // stride
         (void *)0 // array buffer offset
     );
-    // Draw the triangle !
+
+    glm::mat4 MVPMatrix = camera->projectionMatrix * camera->viewMatrix * glm::mat4(1.0f);
+
+    GLuint MatrixID = glGetUniformLocation(programID, "MVPMatrix");
+    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVPMatrix[0][0]);
+
     glDrawArrays(GL_TRIANGLES, 0, 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
     glDisableVertexAttribArray(0);
 }
