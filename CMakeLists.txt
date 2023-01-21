@@ -9,23 +9,29 @@ project ("3D-Engine-Desktop")
 add_executable (engine
 
 "src/main.cpp" 
+
 "src/core/Engine.cpp" 
 "src/core/Engine.h" 
 "src/core/Scene.cpp" 
 "src/core/Scene.h"  
 "src/core/Window.cpp"
 "src/core/Window.h"
+"src/core/Component.cpp"
 "src/core/Component.h"
 "src/core/Object.cpp"
 "src/core/Object.h"
 "src/core/Vector3.cpp"
 "src/core/Vector3.h"
 
+"src/objects/Camera.cpp"
 "src/objects/Camera.h"
 
 "src/components/Transform.cpp"
 "src/components/Transform.h"
+"src/components/Mesh.cpp"
 "src/components/Mesh.h"
+"src/components/Shader.cpp"
+"src/components/Shader.h"
 
 "src/utils/loadShader.cpp"
 "src/utils/loadShader.h"

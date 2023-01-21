@@ -4,36 +4,17 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <glm/mat4x4.hpp>
 
 #include "Engine.h"
+#include "Window.h"
+#include "Object.h"
 #include "../objects/Camera.h"
+#include "../components/Mesh.h"
 #include "../utils/loadShader.h"
 
 void Scene::init()
 {
     camera = new Camera();
-
-    static const GLfloat g_vertex_buffer_data[] = {
-        -1.0f,
-        -1.0f,
-        0.0f,
-        1.0f,
-        -1.0f,
-        0.0f,
-        0.0f,
-        1.0f,
-        0.0f,
-    };
-
-    programID = LoadShaders("../../../assets/shaders/shader.vert", "../../../assets/shaders/shader.frag");
-
-    // Generate 1 buffer, put the resulting identifier in vertexbuffer
-    glGenBuffers(1, &vertexbuffer);
-    // The following commands will talk about our 'vertexbuffer' buffer
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    // Give our vertices to OpenGL.
-    glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
 }
 
 void Scene::update()
@@ -51,27 +32,21 @@ void Scene::update()
 
 void Scene::render()
 {
-    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClearColor(0.49020f, 0.82745f, 0.98824f, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glUseProgram(programID);
+    for (int i = 0; i < children.size(); i++)
+    {
+        Mesh *mesh = children[i]->getComponent<Mesh>();
 
-    glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glVertexAttribPointer(
-        0,        // attribute 0. No particular reason for 0, but must match the layout in the shader.
-        3,        // size
-        GL_FLOAT, // type
-        GL_FALSE, // normalized?
-        0,        // stride
-        (void *)0 // array buffer offset
-    );
+        if (mesh)
+        {
+            mesh->render();
+        }
+    }
+}
 
-    glm::mat4 MVPMatrix = camera->projectionMatrix * camera->viewMatrix * glm::mat4(1.0f);
-
-    GLuint MatrixID = glGetUniformLocation(programID, "MVPMatrix");
-    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVPMatrix[0][0]);
-
-    glDrawArrays(GL_TRIANGLES, 0, 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
-    glDisableVertexAttribArray(0);
+void Scene::add(Object *object)
+{
+    children.push_back(object);
 }

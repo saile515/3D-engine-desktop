@@ -1,5 +1,6 @@
-#version 330 core
-layout(location = 0) in vec3 vertexPosition;
+#version 460 core
+
+in vec3 vertexPosition;
 
 uniform mat4 MVPMatrix;
 

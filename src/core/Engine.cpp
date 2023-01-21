@@ -1,6 +1,7 @@
 #include "Engine.h"
 
 #include <iostream>
+#include <chrono>
 
 #include <math.h>
 
@@ -13,7 +14,7 @@ Engine::Engine()
     scene = new Scene();
 }
 
-Engine& Engine::get()
+Engine &Engine::get()
 {
     static Engine instance;
     return instance;
@@ -28,9 +29,9 @@ void Engine::init()
 void Engine::update()
 {
     // Calculate delta time and update perfBuffer
-    std::clock_t perf = std::clock();
+    std::chrono::high_resolution_clock::time_point perf = std::chrono::high_resolution_clock::now();
 
-    deltaTime = ((perf - perfBuffer[59]) / 1000);
+    deltaTime = float(std::chrono::duration_cast<std::chrono::microseconds>(perf - perfBuffer[59]).count()) / 1000000;
 
     for (int i = 1; i < 60; i++)
     {
@@ -40,7 +41,7 @@ void Engine::update()
     perfBuffer[59] = perf;
 
     // Calculate FPS
-    fps = floorf(1000 / ((perfBuffer[59] - perfBuffer[0]) / 60));
+    fps = int(1000000 / (float(std::chrono::duration_cast<std::chrono::microseconds>(perfBuffer[59] - perfBuffer[0]).count()) / 60));
 
     scene->update();
 }
