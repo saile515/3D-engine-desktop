@@ -3,6 +3,7 @@
 #include "core/Engine.h"
 
 #include "core/Object.h"
+#include "components/Transform.h"
 #include "components/Mesh.h"
 #include "components/Shader.h"
 
@@ -21,9 +22,13 @@ int main(void)
 
     engine.scene->add(&obj);
 
+    Transform *transform = obj.getComponent<Transform>();
+
     /* Loop until the user closes the window */
     while (engine.window->shouldUpdate())
     {
+        transform->rotation.setY(transform->rotation.x + engine.deltaTime * 10);
+
         engine.update();
 
         std::cout << engine.fps << "\n";

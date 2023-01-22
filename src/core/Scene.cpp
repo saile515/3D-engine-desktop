@@ -15,6 +15,7 @@
 void Scene::init()
 {
     camera = new Camera();
+    add(camera);
 }
 
 void Scene::update()
@@ -22,7 +23,10 @@ void Scene::update()
     /* Poll for and process events */
     glfwPollEvents();
 
-    // TODO: update objects here
+    for (int i = 0; i < children.size(); i++)
+    {
+        children[i]->update();
+    }
 
     render();
 

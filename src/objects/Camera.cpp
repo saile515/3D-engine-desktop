@@ -8,3 +8,8 @@ Camera::Camera()
 
     transform->position.setZ(10);
 }
+
+void Camera::update()
+{
+    viewMatrix = glm::inverse(getComponent<Transform>()->matrix);
+}
